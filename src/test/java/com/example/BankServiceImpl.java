@@ -12,7 +12,7 @@ public class BankServiceImpl implements BankService {
     public void pay(String id, double amount) {
         employees.stream()
         .filter(findEmployee(id))
-        .forEach(payEmployee(amount));
+        .forEach(payEmployee());
 
     }
 
@@ -20,12 +20,11 @@ public class BankServiceImpl implements BankService {
         return e -> e.getId().equals(id);
     }
 
-    private static Consumer<Employee> payEmployee(double amount) {
-        return employee -> paySalary(amount, employee);
+    private static Consumer<Employee> payEmployee() {
+        return employee -> paySalary(employee);
     }
 
-    private static void paySalary(double amount, Employee employee) {
-        employee.setSalary(amount);
+    private static void paySalary(Employee employee) {
         employee.setPaid(true);
     }
 }
