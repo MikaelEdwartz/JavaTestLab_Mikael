@@ -44,10 +44,10 @@ class EmployeesTest {
         Employees employees = new Employees(employeeRepository, bankService);
         employeeOne.setPaid(true);
 
+        doThrow(new RuntimeException()).when(bankService).pay(employeeOne.getId(), employeeOne.getSalary());
+        employees.payEmployees();
 
-         doThrow(new RuntimeException()).when(bankService).pay(employeeOne.getId(), employeeOne.getSalary());
-         employees.payEmployees();
-         assertThat(employeeOne.isPaid()).isFalse();
+        assertThat(employeeOne.isPaid()).isFalse();
 
     }
 
