@@ -7,8 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static com.example.EmployeeRepositoryImpl.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 class EmployeeRepositoryImplTest {
 
