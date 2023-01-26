@@ -12,4 +12,8 @@ public class Game {
     public int score() {
         return this.score;
     }
+
+    public void roll(int pinsKnockedDown) {
+        score += pinsKnockedDown;
+    }
 }
