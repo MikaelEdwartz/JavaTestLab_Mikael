@@ -20,6 +20,11 @@ public class MemoryEmployeeRepository {
     }
 
     public void save(Employee employee){
+        if(employees == null || employees.isEmpty()) {
+            employees = new ArrayList<>();
+            employees.add(employee);
+        }
+
         var tempEmployees = employees.stream()
                 .filter(e -> !e.getId().equals(employee.getId()))
                 .collect(Collectors.toList());
