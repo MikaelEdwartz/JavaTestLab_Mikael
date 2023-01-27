@@ -1,6 +1,5 @@
 package com.example;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -13,12 +12,11 @@ public class MemoryEmployeeRepository {
     }
 
     public MemoryEmployeeRepository(List<Employee> employees){
-        this.employees = new ArrayList<>(employees);
-
+        employees.forEach(this::save);
     }
 
     public List<Employee> findAll(){
-        return employees;
+        return employees.stream().toList();
     }
 
     public void save(Employee employee){

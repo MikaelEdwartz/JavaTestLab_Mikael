@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class MemoryEmployeeRepositoryTest {
@@ -25,6 +24,6 @@ class MemoryEmployeeRepositoryTest {
     void creatingNewMemoryRepoCreatesEmptyList() {
         MemoryEmployeeRepository memoryEmployeeRepository1 = new MemoryEmployeeRepository();
 
-        assertThat(memoryEmployeeRepository1.findAll().size()).isEqualTo(0);
+        assertThat(memoryEmployeeRepository1.employees.size()).isEqualTo(0);
     }
 }
