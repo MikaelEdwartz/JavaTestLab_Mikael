@@ -1,0 +1,13 @@
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build code
+      run: mvn -B compile --file pom.xml
+    - name: Run tests
+      run: mvn -B test --file pom.xml
