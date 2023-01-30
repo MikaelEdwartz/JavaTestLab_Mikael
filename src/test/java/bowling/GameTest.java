@@ -33,7 +33,19 @@ class GameTest {
 
         assertThat(game.getRounds()).hasSize(maxRounds);
     }
+    @Test
+    void RollingASpareReturnsCorrectBonusAmount() {
 
+        game.roll(9);
+        game.roll(1);
+        game.roll(5);
+
+        fillRounds(17, game, 0);
+        int expectedResult = game.score();
+
+        assertThat(expectedResult).isEqualTo(20);
+
+    }
 
 
 

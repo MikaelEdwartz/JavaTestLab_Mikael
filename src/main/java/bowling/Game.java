@@ -5,7 +5,9 @@ import java.util.List;
 
 public class Game {
     private static int MAX_ROUNDS = 21;
+    public final static int MAX_PINS = 10;
     private int score;
+    private int round;
     private final List<Integer> rounds;
 
     public Game() {
@@ -19,12 +21,24 @@ public class Game {
 
     public int score() {
         score = 0;
-            score = rounds.stream().mapToInt(Integer::intValue).sum();
+        round = 0;
+        for (int i = round; i < 10 ; i++) {
 
+        if(roundPoints(round) + roundPoints(round + 1) == MAX_PINS){
+            score += MAX_PINS + roundPoints(round + 2);
+            round += 2;
+        }else{
+            score += roundPoints(round) + roundPoints(round+1);
+            this.round += 2;
+        }
+
+        }
         return score;
     }
 
-
+    private int roundPoints(int round) {
+        return rounds.get(round);
+    }
     public List<Integer> getRounds() {
         return rounds;
     }
