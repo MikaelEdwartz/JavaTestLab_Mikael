@@ -25,6 +25,15 @@ class GameTest {
 
         assertThat(score).isEqualTo(pinsToHit);
     }
+    @Test
+    void CheckingThatGameStopsAfterMaxAmountOfRolls() {
+        int maxRounds = 21;
+        for (int i = 0; i < maxRounds + 1; i++)
+            game.roll(i);
+
+        assertThat(game.getRounds()).hasSize(maxRounds);
+    }
+
 
 
 

@@ -23,4 +23,10 @@ public class Game {
 
         return score;
     }
+
+
+    public List<Integer> getRounds() {
+        return rounds;
+    }
+
 }
