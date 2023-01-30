@@ -59,7 +59,15 @@ class GameTest {
         assertThat(expectedResult).isEqualTo(24);
 
     }
+    @Test
+    void rollingPerfectGameReturnsCorrectAmountOfPoints() {
 
+        fillRounds(12, game, 10);
+
+        int expectedResult = game.score();
+
+        assertThat(expectedResult).isEqualTo(300);
+    }
 
 
 

@@ -35,7 +35,7 @@ public class Game {
     }
 
     private void getPointsForStrike() {
-        score = MAX_PINS + roundPoints(round + 1) + roundPoints(round + 2);
+        score += MAX_PINS + roundPoints(round + 1) + roundPoints(round + 2);
         round++;
     }
 
