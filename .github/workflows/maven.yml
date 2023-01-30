@@ -1,15 +1,26 @@
+name: Java CI with Maven
+
 on:
   push:
-    branches:
-      - master
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
 
 jobs:
   build:
+
     runs-on: ubuntu-latest
+
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-    - name: BuildCode
-      run: mvn -B compile -Dmaven.compiler.target=19 -Dmaven.compiler.source=19 --file pom.xml
+    - uses: actions/checkout@v3
+    - name: Set up JDK 19
+      uses: actions/setup-java@v3
+      with:
+        java-version: '19'
+        distribution: 'temurin'
+        cache: maven
+    - name: Compile
+      run: mvn -B compile --file pom.xml
     - name: RunTests
       run: mvn -B test --file pom.xml
+      
