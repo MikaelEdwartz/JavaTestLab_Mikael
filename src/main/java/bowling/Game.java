@@ -22,23 +22,35 @@ public class Game {
     public int score() {
         score = 0;
         round = 0;
-        for (int i = round; i < 10 ; i++) {
+        for (int i = round; i < 10; i++) {
 
-        if(roundPoints(round) + roundPoints(round + 1) == MAX_PINS){
-            score += MAX_PINS + roundPoints(round + 2);
-            round += 2;
-        }else{
-            score += roundPoints(round) + roundPoints(round+1);
-            this.round += 2;
-        }
+            if (isASpare())
+                getPointsForSpareRound();
+            else
+                getPointsForRegularRound();
 
         }
         return score;
     }
 
+    private void getPointsForRegularRound() {
+        score += roundPoints(round) + roundPoints(round + 1);
+        this.round += 2;
+    }
+
+    private void getPointsForSpareRound() {
+        score += MAX_PINS + roundPoints(round + 2);
+        round += 2;
+    }
+
+    private boolean isASpare() {
+        return roundPoints(round) + roundPoints(round + 1) == MAX_PINS;
+    }
+
     private int roundPoints(int round) {
         return rounds.get(round);
     }
+
     public List<Integer> getRounds() {
         return rounds;
     }
