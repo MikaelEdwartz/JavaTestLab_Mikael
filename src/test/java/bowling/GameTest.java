@@ -46,7 +46,19 @@ class GameTest {
         assertThat(expectedResult).isEqualTo(20);
 
     }
+    @Test
+    void rollingAStrikeReturnsCorrectAmountOfBonusPoints() {
 
+        game.roll(10);
+        game.roll(3);
+        game.roll(4);
+
+        fillRounds(25, game, 0);
+        int expectedResult = game.score();
+
+        assertThat(expectedResult).isEqualTo(24);
+
+    }
 
 
 

@@ -23,8 +23,11 @@ public class Game {
         score = 0;
         round = 0;
         for (int i = round; i < 10; i++) {
-
-            if (isASpare())
+            if(rounds.get(round) == MAX_PINS){
+                score = MAX_PINS + roundPoints(round + 1) + roundPoints(round + 2);
+                round++;
+            }
+            else if (isASpare())
                 getPointsForSpareRound();
             else
                 getPointsForRegularRound();
