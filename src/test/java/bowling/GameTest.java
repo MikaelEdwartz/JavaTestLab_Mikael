@@ -70,7 +70,27 @@ class GameTest {
     }
 
 
+    @Test
+    void Rolling2StrikesAnd2SparesRestOnesReturnsCorrectAmount() {
 
+        rollStrike(game);
+        rollStrike(game);
+        rollSpare(game);
+        rollSpare(game);
+        fillRounds(18, game, 1);
+        int score = game.score();
+
+        assertThat(score).isEqualTo(83);
+    }
+    public void rollStrike(Game game) {
+        game.roll(10);
+    }
+
+    public void rollSpare(Game game) {
+        game.roll(5);
+        game.roll(5);
+
+    }
 
 
 
