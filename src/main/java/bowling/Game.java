@@ -23,7 +23,7 @@ public class Game {
         score = 0;
         round = 0;
         for (int i = round; i < 10; i++) {
-            if(isAStrike())
+            if (isAStrike())
                 getPointsForStrike();
             else if (isASpare())
                 getPointsForSpareRound();

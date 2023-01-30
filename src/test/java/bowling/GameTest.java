@@ -3,6 +3,7 @@ package bowling;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.*;
+
 class GameTest {
     Game game = new Game();
 
@@ -25,6 +26,7 @@ class GameTest {
 
         assertThat(score).isEqualTo(pinsToHit);
     }
+
     @Test
     void CheckingThatGameStopsAfterMaxAmountOfRolls() {
         int maxRounds = 21;
@@ -33,6 +35,7 @@ class GameTest {
 
         assertThat(game.getRounds()).hasSize(maxRounds);
     }
+
     @Test
     void RollingASpareReturnsCorrectBonusAmount() {
 
@@ -46,6 +49,7 @@ class GameTest {
         assertThat(expectedResult).isEqualTo(20);
 
     }
+
     @Test
     void rollingAStrikeReturnsCorrectAmountOfBonusPoints() {
 
@@ -59,6 +63,7 @@ class GameTest {
         assertThat(expectedResult).isEqualTo(24);
 
     }
+
     @Test
     void rollingPerfectGameReturnsCorrectAmountOfPoints() {
 
@@ -68,7 +73,6 @@ class GameTest {
 
         assertThat(expectedResult).isEqualTo(300);
     }
-
 
     @Test
     void Rolling2StrikesAnd2SparesRestOnesReturnsCorrectAmount() {
@@ -82,6 +86,7 @@ class GameTest {
 
         assertThat(score).isEqualTo(83);
     }
+
     public void rollStrike(Game game) {
         game.roll(10);
     }
@@ -91,25 +96,6 @@ class GameTest {
         game.roll(5);
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     public void fillRounds(int rounds, Game game, int pinsKnockedDown) {
         for (int i = 0; i < rounds; i++)
