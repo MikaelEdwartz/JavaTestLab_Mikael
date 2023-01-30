@@ -23,10 +23,8 @@ public class Game {
         score = 0;
         round = 0;
         for (int i = round; i < 10; i++) {
-            if(rounds.get(round) == MAX_PINS){
-                score = MAX_PINS + roundPoints(round + 1) + roundPoints(round + 2);
-                round++;
-            }
+            if(isAStrike())
+                getPointsForStrike();
             else if (isASpare())
                 getPointsForSpareRound();
             else
@@ -34,6 +32,15 @@ public class Game {
 
         }
         return score;
+    }
+
+    private void getPointsForStrike() {
+        score = MAX_PINS + roundPoints(round + 1) + roundPoints(round + 2);
+        round++;
+    }
+
+    private boolean isAStrike() {
+        return rounds.get(round) == MAX_PINS;
     }
 
     private void getPointsForRegularRound() {
