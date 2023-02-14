@@ -20,7 +20,7 @@ jobs:
     - name: Set up JDK 19
       uses: actions/setup-java@v3
       with:
-        java-version: $Java_Version
+        java-version: ${{ env.Java_Version }}
         distribution: 'temurin'
         cache: maven
     - name: Compile
